@@ -32,7 +32,7 @@ export default function ProjectCard({ project, openModal }) {
       </div>
 
       {/* Right Column - Half Hidden Image */}
-      <div className="relative w-1/2 top-10 overflow-hidden rounded-l-xl">
+      <div className="relative w-1/2 top-8 overflow-hidden rounded-l-xl">
         <img
           src={project.image}
           alt={project.title}
