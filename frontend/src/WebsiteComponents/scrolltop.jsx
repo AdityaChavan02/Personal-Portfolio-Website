@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
+import { useTheme } from "next-themes";
 
 export default function ScrollToTop() {
+    const { theme } = useTheme(); // ✅ Fix: Get current theme from next-themes
+  
   const [isVisible, setIsVisible] = useState(false);
 
   // Handle Scroll Event
@@ -31,7 +34,7 @@ export default function ScrollToTop() {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 bg-purple-600 text-white p-3 rounded-full shadow-lg transition-transform transform hover:scale-110 focus:outline-none z-50"
+          className="fixed bottom-4 right-4 bg-black text-white p-3 rounded-full shadow-lg transition-transform transform hover:scale-110 focus:outline-none z-50"
         >
           <FaArrowUp className="text-md" />
         </button>

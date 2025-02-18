@@ -78,7 +78,7 @@ export default function HeroSection() {
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white"
         >
-          Hello, <span className="text-purple-600 dark:text-yellow-400 ">I’m Aditya</span>
+          Hello, <span className="text-teal dark:text-yellow-400 ">I’m Aditya</span>
         </motion.h1>
 
         {/* Animated Role Typing */}
@@ -130,16 +130,18 @@ export default function HeroSection() {
           >
             <button
               onClick={handleScroll}
-              className="border-2 backdrop-blur-xl border-gray-900 dark:border-white text-gray-900 dark:text-white shadow-lg px-4 py-2 rounded-lg flex items-center space-x-2 transition-transform duration-300 hover:translate-y-1"
+              className="border-2 backdrop-blur-3xl border-gray-900 dark:border-white text-gray-900 dark:text-white shadow-lg px-4 py-2 rounded-lg flex items-center space-x-2 transition-transform duration-300 hover:translate-y-1"
             >
               <span>View Projects</span>
               <FaAngleDoubleDown className="animate-bounce" />
             </button>
-            <button 
-              className="bg-purple-600 backdrop-blur-xl dark:bg-yellow-400 text-white px-4 py-2 rounded-lg shadow-lg font-semibold transition-all hover:bg-purple-700 dark:hover:bg-yellow-500"
-              onClick={() => window.open("../public/resume.pdf", "_blank")}
-            >View Resume
-            </button>
+            <button
+                className="bg-black backdrop-blur-3xl dark:bg-yellow-400 text-white px-4 py-2 rounded-lg shadow-lg font-semibold transition-all hover:bg-purple-700 dark:hover:bg-yellow-500"
+                onClick={() => window.open("/resume.pdf", "_blank")}
+              >
+                View Resume
+              </button>
+
 
           </motion.div>
         )}

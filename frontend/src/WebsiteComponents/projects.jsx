@@ -65,17 +65,17 @@ export default function Projects() {
     <div className="flex flex-col w-full px-2 py-8 space-y-8">
       {/* Title */}
       <div className="text-center space-y-4">
-              <h2 className={`text-4xl font-mono font-bold flex items-center mb-12 transition-all duration-300 ${
+              <h2 className={`text-4xl font-mono font-bold flex items-center mb-20 transition-all duration-300 ${
           theme === "dark" ? "text-gray-200" : "text-gray-800"
         }`}>
-          <span className={theme === "dark" ? "text-cyan-400" : "text-blue-500"}>{`</`}</span>
+          <span className={theme === "dark" ? "text-teal" : "text-teal"}>{`</`}</span>
           <span className={theme === "dark" ? "text-white" : "text-black"}>PROJECTS</span>
-          <span className={theme === "dark" ? "text-pink-400" : "text-red-500"}>{`>`}</span>
+          <span className={theme === "dark" ? "text-teal" : "textteal"}>{`>`}</span>
           <span
-            className={`flex-1 ml-2 h-[2px] transition-all duration-300 ${
+            className={`flex-1 ml-4 h-[3px] transition-all duration-300 ${
               theme === "dark"
-                ? "bg-gradient-to-r from-cyan-400 to-pink-400"
-                : "bg-gradient-to-r from-blue-500 to-red-500"
+                ? "bg-gradient-to-r from-teal to-transparent"
+                : "bg-gradient-to-r from-teal to-transparent"
             }`}
           ></span>
         </h2>

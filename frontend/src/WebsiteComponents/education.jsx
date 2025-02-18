@@ -57,36 +57,36 @@ export default function EducationExperienceTabs() {
       <div className="flex flex-col max-w-9xl w-full px-6">
         {/* Section Title */}
         <h2
-          className={`text-4xl font-mono font-bold flex items-center mb-12 transition-all duration-300 ${
+          className={`text-4xl font-mono font-bold flex items-center mb-20 transition-all duration-300 ${
             theme === "dark" ? "text-gray-200" : "text-gray-800"
           }`}
         >
-          <span className={theme === "dark" ? "text-cyan-400" : "text-blue-500"}>
+          <span className={theme === "dark" ? "text-teal" : "text-teal"}>
             {`</`}
           </span>
           <span className={theme === "dark" ? "text-white" : "text-black"}>
             MY PROFILE
           </span>
-          <span className={theme === "dark" ? "text-pink-400" : "text-red-500"}>
+          <span className={theme === "dark" ? "text-teal" : "textteal"}>
             {`>`}
           </span>
           <span
-            className={`flex-1 ml-2 h-[2px] transition-all duration-300 ${
+            className={`flex-1 ml-4 h-[3px] transition-all duration-300 ${
               theme === "dark"
-                ? "bg-gradient-to-r from-cyan-400 to-pink-400"
-                : "bg-gradient-to-r from-blue-500 to-red-500"
+                ? "bg-gradient-to-r from-teal to-transparent"
+                : "bg-gradient-to-r from-teal to-transparent"
             }`}
           ></span>
         </h2>
 
         {/* Navigation Tabs - Center Aligned */}
         <div className="w-full flex justify-center mb-8">
-          <div className="flex items-center justify-center bg-white dark:bg-gray-800 shadow-lg px-6 py-3 rounded-lg">
+          <div className="flex items-center justify-center backdrop-blur-xl shadow-lg px-6 py-3 mb-10 rounded-lg">
             <button
               onClick={() => setActiveTab("experience")}
               className={`px-6 py-2 text-lg font-semibold rounded-lg transition-all ${
                 activeTab === "experience"
-                  ? "bg-purple-600 text-white shadow-lg scale-105"
+                  ? "bg-black text-white shadow-lg scale-105"
                   : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600"
               }`}
             >
@@ -96,7 +96,7 @@ export default function EducationExperienceTabs() {
               onClick={() => setActiveTab("education")}
               className={`px-6 py-2 ml-4 text-lg font-semibold rounded-lg transition-all ${
                 activeTab === "education"
-                  ? "bg-purple-600 text-white shadow-lg scale-105"
+                  ? "bg-black text-white shadow-lg scale-105"
                   : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600"
               }`}
             >

@@ -89,33 +89,33 @@ export default function Skills() {
   const [activeCategory, setActiveCategory] = useState("Frontend");
 
   return (
-    <div className="flex flex-col items-center w-full py-10 px-4">
+    <div className="flex flex-col items-center justify-center w-full py-20 px-4">
       {/* Title */}
       <h2
-        className={`text-4xl font-mono font-bold flex justify-start items-start mb-12 transition-all duration-300 ${
+        className={`text-4xl w-full font-mono font-bold flex justify-start items-center mt-12 mb-20 transition-all duration-300 ${
           theme === "dark" ? "text-gray-200" : "text-gray-800"
         }`}
       >
-        <span className={theme === "dark" ? "text-cyan-400" : "text-blue-500"}>
+        <span className={theme === "dark" ? "text-teal" : "text-teal"}>
           {`</`}
         </span>
         <span className={theme === "dark" ? "text-white" : "text-black"}>
           SKILLS
         </span>
-        <span className={theme === "dark" ? "text-pink-400" : "text-red-500"}>
+        <span className={theme === "dark" ? "text-teal" : "text-teal"}>
           {`>`}
         </span>
         <span
-          className={`flex-1 ml-2 h-[2px] transition-all duration-300 ${
+          className={`flex-1 ml-4 h-[3px] transition-all duration-300 ${
             theme === "dark"
-              ? "bg-gradient-to-r from-cyan-400 to-pink-400"
-              : "bg-gradient-to-r from-blue-500 to-red-500"
+              ? "bg-gradient-to-r from-cyan-400 to-transparent"
+              : "bg-gradient-to-r from-teal to-transparent"
           }`}
         ></span>
       </h2>
 
       {/* Category Navigation Bar */}
-      <div className="flex justify-between w-full bg-white shadow-md p-2 mr-2 rounded-md mb-10 max-w-4xl">
+      <div className="flex justify-between w-full backdrop-blur-xl shadow-md p-2 mr-2 rounded-md mb-20 max-w-4xl">
         {Object.keys(techCategories).map((category) => (
           <button
             key={category}
@@ -123,7 +123,7 @@ export default function Skills() {
             className={`px-14 py-2 mx-2 text-md font-semibold rounded-md transition-all 
               ${
                 activeCategory === category
-                  ? "bg-purple-600 text-white shadow-lg scale-105"
+                  ? "bg-black text-white shadow-lg scale-105"
                   : "bg-gray-100 text-gray-800 hover:bg-purple-500 hover:text-white"
               }`}
           >

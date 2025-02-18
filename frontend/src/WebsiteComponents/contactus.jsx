@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Modal from "react-modal"; // Import modal package
+import { useTheme } from "next-themes";
 
 export default function ContactUs() {
+  const { theme } = useTheme(); // ✅ Fix: Get current theme from next-themes
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -88,73 +90,102 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="flex flex-col w-full">
-      <form
-        onSubmit={handleSubmit} // Corrected OnSubmit for Form
-        className="flex flex-row w-full bg-transparent py-10 px-10 space-x-10 mt-10"
+    <div>
+      <h2
+        className={`text-4xl w-full font-mono font-bold flex items-center mt-20 mb-0 transition-all duration-300 ${
+          theme === "dark" ? "text-gray-200" : "text-gray-800"
+        }`}
       >
-        {/* Text Container */}
-        <div className="flex flex-col w-1/3 justify-center space-y-20">
-          <h1 className="text-4xl font-extrabold">Let's Get in Touch!</h1>
-        </div>
-
-        {/* Details Container */}
-        <div className="flex flex-col w-1/3 space-y-12">
-          <input
-            type="text"
-            name="fullName"
-            placeholder="Full Name"
-            value={formData.fullName}
-            onChange={handleChange}
-            className="border-b pb-2 bg-transparent"
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            className="border-b pb-2 bg-transparent"
-            required
-          />
-          <input
-            type="text"
-            name="phone"
-            placeholder="Phone"
-            value={formData.phone}
-            onChange={handleChange}
-            className="border-b pb-2 bg-transparent"
-            required
-          />
-          <input
-            type="text"
-            name="company"
-            placeholder="Company"
-            value={formData.company}
-            onChange={handleChange}
-            className="border-b pb-2 bg-transparent"
-          />
-        </div>
-
-        {/* Message and File Upload */}
-        <div className="flex flex-col w-1/3 bg-transparent">
-          <textarea
-            name="message"
-            placeholder="Message"
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full h-full border-b pb-14 bg-transparent"
-          ></textarea>
-
-          <button
-            type="submit" // Corrected to Trigger Form Submission
-            className="bg-black text-white mt-10 py-3 px-4 rounded-3xl"
-          >
-            SUBMIT
-          </button>
-        </div>
-      </form>
+        <span
+          className={
+            theme === "dark" ? "text-teal" : "text-teal"
+          }
+        >{`</`}</span>
+        <span className={theme === "dark" ? "text-white" : "text-black"}>
+          CONNECT
+        </span>
+        <span
+          className={
+            theme === "dark" ? "text-teal" : "textteal"
+          }
+        >{`>`}</span>
+        <span
+          className={`flex-1 ml-4 h-[3px] transition-all duration-300 ${
+            theme === "dark"
+              ? "bg-gradient-to-r from-teal to-transparent"
+              : "bg-gradient-to-r from-teal to-transparent"
+          }`}
+        ></span>
+      </h2>
+      <div className="flex flex-row w-full">
+        <form
+          onSubmit={handleSubmit} // Corrected OnSubmit for Form
+          className="flex flex-row w-full bg-transparent py-10 px-10 space-x-10 mt-10"
+        >
+          {/* Text Container */}
+          <div className="flex flex-col w-1/3 justify-center space-y-20">
+            <h1 className="text-4xl font-extrabold">Let's Get in Touch!</h1>
+          </div>
+  
+          {/* Details Container */}
+          <div className="flex flex-col w-1/3 space-y-12">
+            <input
+              type="text"
+              name="fullName"
+              placeholder="Full Name"
+              value={formData.fullName}
+              onChange={handleChange}
+              className="border-b pb-2 bg-transparent"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              className="border-b pb-2 bg-transparent"
+              required
+            />
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone"
+              value={formData.phone}
+              onChange={handleChange}
+              className="border-b pb-2 bg-transparent"
+              required
+            />
+            <input
+              type="text"
+              name="company"
+              placeholder="Company"
+              value={formData.company}
+              onChange={handleChange}
+              className="border-b pb-2 bg-transparent"
+            />
+          </div>
+  
+          {/* Message and File Upload */}
+          <div className="flex flex-col w-1/3 bg-transparent">
+            <textarea
+              name="message"
+              placeholder="Message"
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full h-full border-b pb-14 bg-transparent"
+            ></textarea>
+  
+            <button
+              type="submit" // Corrected to Trigger Form Submission
+              className={`mt-10 py-3 px-4 rounded-3xl ${
+          theme === "dark" ? "bg-white text-black" : "bg-black text-white"
+        }`}>
+              SUBMIT
+            </button>
+          </div>
+        </form>
+      </div>
 
       {/* ✅ Custom Alert Modal */}
       <Modal
@@ -181,3 +212,4 @@ export default function ContactUs() {
     </div>
   );
 }
+

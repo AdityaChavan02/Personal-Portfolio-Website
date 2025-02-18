@@ -7,10 +7,10 @@ import "react-circular-progressbar/dist/styles.css";
 import ProfilePic from "../assets/Images/profile.jpg"; // Ensure correct path
 
 const skills = [
-  { title: "Database Management", value: 98, color: "#6A5ACD" },
-  { title: "Full Stack Development", value: 90, color: "#20B2AA" },
-  { title: "Web Development", value: 95, color: "#FF8C00" },
-  { title: "Shell Scripting", value: 88, color: "#DC143C" },
+  { title: "Database Management", value: 93, color: "#6A5ACD" },
+  { title: "Full Stack Development", value: 94, color: "#20B2AA" },
+  { title: "Responsive Web Development", value: 90, color: "#FF8C00" },
+  { title: "Framework Expertise", value: 91, color: "#DC143C" },
 ];
 
 export default function AboutMe() {
@@ -26,18 +26,18 @@ export default function AboutMe() {
         className="justify-start items-start text-5xl font-extrabold"
       >
         <h2
-          className={`text-4xl font-mono font-bold flex items-center my-12 transition-all duration-300 ${
+          className={`text-4xl font-mono font-bold flex items-center mt-12 mb-20 transition-all duration-300 ${
             theme === "dark" ? "text-gray-200" : "text-gray-800"
           }`}
         >
-          <span className={theme === "dark" ? "text-cyan-400" : "text-blue-500"}>{"</"}</span>
+          <span className={theme === "dark" ? "text-teal" : "text-teal"}>{"</"}</span>
           <span className={theme === "dark" ? "text-white" : "text-black"}>ABOUT ME</span>
-          <span className={theme === "dark" ? "text-pink-400" : "text-red-500"}>{">"}</span>
+          <span className={theme === "dark" ? "text-teal" : "tex-teal"}>{">"}</span>
           <span
-            className={`flex-1 ml-2 h-[2px] transition-all duration-300 ${
+            className={`flex-1 ml-4 h-[3px] transition-all duration-300 ${
               theme === "dark"
-                ? "bg-gradient-to-r from-cyan-400 to-pink-400"
-                : "bg-gradient-to-r from-blue-500 to-red-500"
+                ? "bg-gradient-to-r from-teal to-transparent"
+                : "bg-gradient-to-r from-teal to-transparent"
             }`}
           ></span>
         </h2>
@@ -92,7 +92,7 @@ export default function AboutMe() {
             </div>
             <div className="flex items-center space-x-4">
               <FaPhone className="text-green-500 text-xl" />
-              <span><strong>Phone:</strong> +18576546076</span>
+              <span><strong>Phone:</strong> +44-7768406922</span>
             </div>
             <div className="flex items-center space-x-4">
               <FaEnvelope className="text-red-500 text-xl" />
@@ -107,7 +107,7 @@ export default function AboutMe() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.8 }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12"
+        className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-20"
       >
         {skills.map((skill, index) => (
           <motion.div
@@ -115,9 +115,9 @@ export default function AboutMe() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.9 + index * 0.2 }}
-            className="flex flex-col items-center justify-center bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition-all hover:scale-105"
+            className="flex flex-col items-center w-full justify-center bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition-all hover:scale-105"
           >
-            <div className="w-24 h-24">
+            <div className="w-28 h-28">
               <CircularProgressbar
                 value={skill.value}
                 text={`${skill.value}%`}
@@ -128,7 +128,7 @@ export default function AboutMe() {
                 })}
               />
             </div>
-            <h3 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">
+            <h3 className="flex mt-4 w-full text-xl font-semibold items-center justify-center text-gray-800 dark:text-white">
               {skill.title}
             </h3>
           </motion.div>
