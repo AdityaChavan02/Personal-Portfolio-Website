@@ -8,8 +8,8 @@ export default function ProjectCard({ project, openModal }) {
 
   return (
     <div
-      className={`relative flex flex-row items-center w-full h-[250px] overflow-hidden rounded-xl shadow-md transition-all hover:shadow-lg cursor-pointer
-        ${theme === "dark" ? "bg-[#0a0a0a] text-white" : "bg-gray-100 text-black"}`}
+      className={`relative flex flex-row items-center w-full h-[300px] overflow-hidden rounded-xl shadow-md transition-all hover:shadow-lg cursor-pointer
+        ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => openModal(project)}
@@ -32,7 +32,7 @@ export default function ProjectCard({ project, openModal }) {
       </div>
 
       {/* Right Column - Half Hidden Image */}
-      <div className="relative w-1/2 h-full top-30 overflow-hidden rounded-l-xl">
+      <div className="relative w-1/2 top-10 overflow-hidden rounded-l-xl">
         <img
           src={project.image}
           alt={project.title}

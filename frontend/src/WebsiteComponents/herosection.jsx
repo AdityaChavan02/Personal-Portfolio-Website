@@ -4,12 +4,12 @@ import Editor from "react-simple-code-editor";
 import { Highlight, themes } from "prism-react-renderer";
 import { FaCircle, FaAngleDoubleDown } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
-import ProfilePic from "../assets/Images/profile.jpg"; // Replace with your path
+import { motion } from "framer-motion"; // Import framer-motion for animations
+import ProfilePic from "../assets/Images/profile.jpg"; // Ensure correct path
 
 export default function HeroSection() {
   const { theme } = useTheme();
   const [isHeadingRendered, setIsHeadingRendered] = useState(false);
-  const [moveUp, setMoveUp] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [showEditor, setShowEditor] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
@@ -34,11 +34,10 @@ export default function HeroSection() {
 
   useEffect(() => {
     setTimeout(() => setIsHeadingRendered(true), 1100);
-    setTimeout(() => setMoveUp(true), 2300);
-    setTimeout(() => setShowContent(true), 3500);
-    setTimeout(() => setShowProfile(true), 4000);
-    setTimeout(() => setShowEditor(true), 4500);
-    setTimeout(() => typeCode(initialCode), 4700);
+    setTimeout(() => setShowContent(true), 1300);
+    setTimeout(() => setShowProfile(true), 1800);
+    setTimeout(() => setShowEditor(true), 1800);
+    setTimeout(() => typeCode(initialCode), 1900);
   }, []);
 
   // Typing Animation Effect
@@ -63,26 +62,32 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative w-full h-screen flex flex-col md:flex-row items-left justify-between overflow-hidden transition-all duration-300 px-10">
-      {/* Left Column */}
-      <div className="w-full md:w-[800px] flex flex-col justify-center space-y-6">
+    <section className="relative w-full h-screen flex flex-col md:flex-row justify-between overflow-hidden transition-all duration-300 px-10 mb-0 pb-0">
+      
+      {/* Left Column - Animations Applied */}
+      <motion.div 
+        initial={{ y: 50, opacity: 0 }} 
+        animate={{ y: 0, opacity: 1 }} 
+        transition={{ duration: 1.5, ease: "easeOut" }} 
+        className="w-full md:w-1/2 flex flex-col items-start justify-start space-y-8 mt-40 " style={{ minHeight: "500px", maxHeight: "500px" }}
+      >
         {/* Animated Greeting */}
-        <div
-          className={`absolute transition-all duration-1000 ${
-            moveUp
-              ? "top-[10%] left-[0%] text-left"
-              : "top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-center"
-          } ${isHeadingRendered ? "opacity-100" : "opacity-0"}`}
+        <motion.h1 
+          initial={{ y: 50, opacity: 0 }} 
+          animate={{ y: 0, opacity: 1 }} 
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white"
         >
-          <h1 className="text-3xl md:text-3xl font-extrabold text-gray-900 dark:text-white">
-            Hi there!{" "}
-            <span className="text-purple-600 dark:text-yellow-400 ml-2">I'm Aditya 👋</span>
-          </h1>
-        </div>
+          Hello, <span className="text-purple-600 dark:text-yellow-400 ">I’m Aditya</span>
+        </motion.h1>
 
-        <div className="flex flex-col justify-between">
-          {/* Scrolling Titles Animation */}
-          {showContent && (
+        {/* Animated Role Typing */}
+        {showContent && (
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+          >
             <TypeAnimation
               sequence={[
                 "Full Stack Developer",
@@ -97,113 +102,107 @@ export default function HeroSection() {
               wrapper="h2"
               className="text-2xl font-semibold text-gray-800 dark:text-gray-300 transition-opacity duration-1000"
             />
-          )}
-
-
-        </div>
+          </motion.div>
+        )}
 
         {/* About Section */}
         {showContent && (
-          <div className="transition-opacity mt-6 duration-1000 opacity-100">
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-400">
-              I am passionate about coding, building scalable applications, and
-              creating innovative solutions. My expertise lies in{" "}
-              <strong>full-stack development</strong> with a focus on{" "}
-              <strong>React, Next.js, and AWS</strong>.
-            </p>
-          </div>
+          <motion.p 
+            initial={{ y: 50, opacity: 0 }} 
+            animate={{ y: 0, opacity: 1 }} 
+            transition={{ duration: 1.5, ease: "easeOut", delay: 0.4 }}
+            className="text-lg leading-relaxed  text-gray-700 dark:text-gray-400"
+          >
+            I am passionate about coding, building scalable applications, and
+            creating innovative solutions. My expertise lies in{" "}
+            <strong>full-stack development</strong> with a focus on{" "}
+            <strong>React, Next.js, and AWS</strong>.
+          </motion.p>
         )}
 
         {/* Buttons */}
         {showContent && (
-          <div className="mt-6 flex space-x-4 text-sm">
-            {/* View More Button */}
+          <motion.div 
+            initial={{ y: 50, opacity: 0 }} 
+            animate={{ y: 0, opacity: 1 }} 
+            transition={{ duration: 1.5, ease: "easeOut", delay: 0.6 }}
+            className="mt-6 flex space-x-4 text-sm"
+          >
             <button
               onClick={handleScroll}
-              className="border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white px-4 py-1 rounded-lg flex items-center space-x-2 transition-transform duration-300 hover:translate-y-1"
+              className="border-2 backdrop-blur-xl border-gray-900 dark:border-white text-gray-900 dark:text-white shadow-lg px-4 py-2 rounded-lg flex items-center space-x-2 transition-transform duration-300 hover:translate-y-1"
             >
-              <span>View More</span>
+              <span>View Projects</span>
               <FaAngleDoubleDown className="animate-bounce" />
             </button>
-
-            {/* Download Resume Button */}
-            <button className="bg-purple-600 dark:bg-yellow-400 text-white px-4 py-1 rounded-lg font-semibold transition-all hover:bg-purple-700 dark:hover:bg-yellow-500">
-              View Resume
+            <button 
+              className="bg-purple-600 backdrop-blur-xl dark:bg-yellow-400 text-white px-4 py-2 rounded-lg shadow-lg font-semibold transition-all hover:bg-purple-700 dark:hover:bg-yellow-500"
+              onClick={() => window.open("../public/resume.pdf", "_blank")}
+            >View Resume
             </button>
-          </div>
-        )}
-      </div>
-      {/* Middle Column */}
-      <div
-        className={`w-full h-auto md:w-1/2 flex flex-col items-center space-y-6 top-30 transition-all duration-1000 ${
-          showEditor ? "translate-x-0 opacity-100" : "translate-x-[75%] opacity-0"
-        }`}
-      >
-          {/* Profile Image */}
-          {showProfile && (
-            <div
-              className="mt-6 transition-all duration-1000 transform"
-              style={{
-                opacity: showProfile ? 1 : 0,
-                translate: showProfile ? "0 0" : "100px",
-              }}
-            >
-              <img
-                src={ProfilePic}
-                alt="Profile"
-                className="w-80 h-100 shadow-lg rounded-lg grayscale hover:grayscale-0 transition-all duration-500 border-4 border-gray-300 dark:border-gray-700"
-              />
-            </div>
-          )}
-      </div>
-      {/* Right Column */}
-      <div
-        className={`w-full md:w-1/2 flex flex-col right-0 items-end space-y-6 items-center top-30 transition-all duration-1000 ${
-          showEditor ? "translate-x-10 opacity-100" : "translate-x-[40%] opacity-0"
-        }`}
-      >
-        {/* Code Editor Panel */}
-        <div
-          className="w-full h-full max-w-2xl bg-white dark:bg-gray-800 rounded-lg shadow-xl scrollbar-hidden"
-          ref={editorRef}
-          style={{
-            minHeight: "500px",
-            maxHeight: "500px",
-            width: "600px",
-            overflowY: "auto",
-          }}
-        >
-          {/* Mac-Style Title Bar */}
-          <div className="flex items-center bg-gray-300 dark:bg-gray-700 px-4 py-2 rounded-t-lg">
-            <FaCircle className="text-red-500 mr-2" />
-            <FaCircle className="text-yellow-500 mr-2" />
-            <FaCircle className="text-green-500" />
-          </div>
 
-          {/* Code Editor */}
-          <Editor
-            value={code}
-            onValueChange={(newCode) => setCode(newCode)}
-            highlight={(code) => (
-              <Highlight theme={themes.nightOwl} code={code} language="javascript">
-                {({ tokens, getLineProps, getTokenProps }) => (
-                  <pre className="p-4 overflow-hidden text-gray-900 dark:text-gray-100">
-                    {tokens.map((line, i) => (
-                      <div key={i} {...getLineProps({ line, key: i })}>
-                        {line.map((token, key) => (
-                          <span key={key} {...getTokenProps({ token })} />
-                        ))}
-                      </div>
-                    ))}
-                  </pre>
-                )}
-              </Highlight>
-            )}
-            padding={15}
-            className="font-mono text-sm leading-6 bg-white dark:bg-gray-900 focus:outline-none rounded-b-lg"
-          />
-        </div>
-      </div>
+          </motion.div>
+        )}
+      </motion.div>
+
+      {/* Code Editor - Background Same for Both Modes */}
+      {showEditor && (
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }} 
+          animate={{ opacity: 1, x: 0 }} 
+          transition={{ duration: 1.5, ease: "easeOut", delay: 1.0 }}
+          className="relative w-full md:w-1/2 flex justify-center md:justify-start mt-10 md:mt-20 ml-20 md:px-0"
+        >
+          <div
+            className={`w-full max-w-2xl rounded-lg shadow-2xl overflow-hidden transition-all duration-300 ${
+              theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
+            }`}
+            ref={editorRef}
+            style={{ minHeight: "500px", maxHeight: "500px", width: "650px" }}
+          >
+            {/* Code Editor Title Bar */}
+            <div
+              className={`flex items-center px-4 py-2 rounded-t-lg transition-all duration-300 ${
+                theme === "dark" ? "bg-gray-800" : "bg-gray-300"
+              }`}
+            >
+              <FaCircle className="text-red mr-2" />
+              <FaCircle className="text-yellow mr-2" />
+              <FaCircle className="text-green" />
+            </div>
+
+            {/* Code Editor */}
+            <Editor
+              value={code}
+              onValueChange={(newCode) => setCode(newCode)}
+              highlight={(code) => (
+                <Highlight
+                  theme={theme === "dark" ? themes.nightOwl : themes.github}
+                  code={code}
+                  language="javascript"
+                >
+                  {({ tokens, getLineProps, getTokenProps }) => (
+                    <pre className="p-4 text-sm transition-all duration-300">
+                      {tokens.map((line, i) => (
+                        <div key={i} {...getLineProps({ line, key: i })}>
+                          {line.map((token, key) => (
+                            <span key={key} {...getTokenProps({ token })} />
+                          ))}
+                        </div>
+                      ))}
+                    </pre>
+                  )}
+                </Highlight>
+              )}
+              padding={15}
+              className={`font-mono text-sm leading-6 focus:outline-none rounded-b-lg transition-all duration-300 ${
+                theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
+              }`}
+            />
+          </div>
+        </motion.div>
+
+      )}
     </section>
   );
 }

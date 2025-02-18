@@ -1,94 +1,131 @@
 import React, { useState } from "react";
+import { useTheme } from "next-themes"; // Dark Mode support
 import {
-  SiJavascript,
-  SiNextdotjs,
-  SiReact,
-  SiRedux,
-  SiTypescript,
-  SiTailwindcss,
-  SiMui,
-  SiChakraui,
   SiHtml5,
   SiCss3,
-  SiBootstrap,
-  SiSass,
-  SiJquery,
+  SiJavascript,
+  SiReact,
   SiNodedotjs,
   SiExpress,
-  SiMongodb,
-  SiFirebase,
+  SiGraphql,
+  SiBootstrap,
+  SiTailwindcss,
+  SiMui,
+  SiD3Dotjs,
+  SiChartdotjs,
+  SiAdobe,
+  SiFigma,
+  SiWordpress,
+  SiElementor,
+  SiWoo,
+  SiPostgresql,
   SiMysql,
-  SiPhp,
-  SiGooglecloud,
-  SiDigitalocean,
-  SiNetlify,
-  SiVercel,
-  SiAndroidstudio,
-  SiOpenjdk,
-  SiSqlite,
-  SiJira,
+  SiMongodb,
+  SiSupabase,
+  SiFirebase,
+  SiTableau,
+  SiJest,
+  SiPostman,
+  SiWebpack,
+  SiVite,
+  SiBabel,
   SiGit,
   SiGithub,
+  SiJira,
+  SiClickup,
+  SiNotion,
+  SiScrumalliance,
 } from "react-icons/si";
 
-import { FaGoogle, FaAws } from "react-icons/fa"; // Corrected AWS import
-
-// Organized Skill Categories
+import { FaAws } from "react-icons/fa";
 const techCategories = {
   Frontend: [
-    { name: "JavaScript", icon: <SiJavascript color="#F7DF1E" /> },
-    { name: "NextJS", icon: <SiNextdotjs color="#000000" /> },
-    { name: "ReactJS", icon: <SiReact color="#61DAFB" /> },
-    { name: "Redux", icon: <SiRedux color="#764ABC" /> },
-    { name: "TypeScript", icon: <SiTypescript color="#007ACC" /> },
-    { name: "Tailwind", icon: <SiTailwindcss color="#38BDF8" /> },
-    { name: "Material UI", icon: <SiMui color="#007FFF" /> },
-    { name: "Chakra UI", icon: <SiChakraui color="#319795" /> },
     { name: "HTML5", icon: <SiHtml5 color="#E34F26" /> },
     { name: "CSS3", icon: <SiCss3 color="#1572B6" /> },
+    { name: "JavaScript (ES6)", icon: <SiJavascript color="#F7DF1E" /> },
+    { name: "React.js", icon: <SiReact color="#61DAFB" /> },
     { name: "Bootstrap", icon: <SiBootstrap color="#7952B3" /> },
-    { name: "Sass", icon: <SiSass color="#CC6699" /> },
-    { name: "jQuery", icon: <SiJquery color="#0769AD" /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss color="#38BDF8" /> },
+    { name: "Material UI", icon: <SiMui color="#007FFF" /> },
+    { name: "d3.js", icon: <SiD3Dotjs color="#F9A03C" /> },
+    { name: "Charts.js", icon: <SiChartdotjs color="#FF6384" /> },
+    { name: "Adobe XD", icon: <SiAdobe color="#FF0000" /> },
+    { name: "Figma", icon: <SiFigma color="#F24E1E" /> },
+    { name: "WordPress", icon: <SiWordpress color="#21759B" /> },
+    { name: "Elementor", icon: <SiElementor color="#92003B" /> },
+    { name: "WooCommerce", icon: <SiWoo color="#96588A" /> },
   ],
   Backend: [
-    { name: "NodeJS", icon: <SiNodedotjs color="#339933" /> },
-    { name: "ExpressJS", icon: <SiExpress color="#000000" /> },
-    { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
-    { name: "Firebase", icon: <SiFirebase color="#FFCA28" /> },
-    { name: "MySQL", icon: <SiMysql color="#4479A1" /> },
-    { name: "PHP", icon: <SiPhp color="#777BB4" /> },
-    { name: "AWS", icon: <FaAws color="#FF9900" /> },
+    { name: "Node.js", icon: <SiNodedotjs color="#339933" /> },
+    { name: "Express.js", icon: <SiExpress color="#000000" /> },
+    { name: "GraphQL", icon: <SiGraphql color="#E10098" /> },
   ],
-  Others: [
-    { name: "Google", icon: <FaGoogle color="#4285F4" /> },
-    { name: "Android Studio", icon: <SiAndroidstudio color="#3DDC84" /> },
-    { name: "Java", icon: <SiOpenjdk color="#007396" /> },
-    { name: "SQLite", icon: <SiSqlite color="#003B57" /> },
-    { name: "Jira", icon: <SiJira color="#0052CC" /> },
+  Databases: [
+    { name: "SQL", icon: <SiPostgresql color="#336791" /> },
+    { name: "PostgreSQL", icon: <SiPostgresql color="#336791" /> },
+    { name: "MySQL", icon: <SiMysql color="#4479A1" /> },
+    { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
+    { name: "Supabase", icon: <SiSupabase color="#3ECF8E" /> },
+    { name: "Firebase", icon: <SiFirebase color="#FFCA28" /> },
+    { name: "AWS", icon: <FaAws color="#FF9900" /> },
+    { name: "Tableau", icon: <SiTableau color="#E97627" /> },
+  ],
+  "DevOps & PM": [
+    { name: "Webpack", icon: <SiWebpack color="#8DD6F9" /> },
+    { name: "Vite", icon: <SiVite color="#646CFF" /> },
+    { name: "Jest", icon: <SiJest color="#C21325" /> },
+    { name: "Postman", icon: <SiPostman color="#FF6C37" /> },
+    { name: "Notion", icon: <SiNotion color="#000000" /> },
+    { name: "ClickUp", icon: <SiClickup color="#7B68EE" /> },
+    { name: "JIRA", icon: <SiJira color="#0052CC" /> },
+    { name: "Agile Scrum", icon: <SiScrumalliance color="#0093D0" /> },
     { name: "Git", icon: <SiGit color="#F05032" /> },
     { name: "GitHub", icon: <SiGithub color="#181717" /> },
-    { name: "DigitalOcean", icon: <SiDigitalocean color="#0080FF" /> },
-    { name: "Netlify", icon: <SiNetlify color="#00C7B7" /> },
-    { name: "Vercel", icon: <SiVercel color="#000000" /> },
   ],
 };
 
 export default function Skills() {
-  const [activeCategory, setActiveCategory] = useState("Frontend"); // State to track selected category
+  const { theme } = useTheme();
+  const [activeCategory, setActiveCategory] = useState("Frontend");
 
   return (
     <div className="flex flex-col items-center w-full py-10 px-4">
       {/* Title */}
-      <h1 className="text-4xl font-bold text-center mb-8">Tech Stack</h1>
+      <h2
+        className={`text-4xl font-mono font-bold flex justify-start items-start mb-12 transition-all duration-300 ${
+          theme === "dark" ? "text-gray-200" : "text-gray-800"
+        }`}
+      >
+        <span className={theme === "dark" ? "text-cyan-400" : "text-blue-500"}>
+          {`</`}
+        </span>
+        <span className={theme === "dark" ? "text-white" : "text-black"}>
+          SKILLS
+        </span>
+        <span className={theme === "dark" ? "text-pink-400" : "text-red-500"}>
+          {`>`}
+        </span>
+        <span
+          className={`flex-1 ml-2 h-[2px] transition-all duration-300 ${
+            theme === "dark"
+              ? "bg-gradient-to-r from-cyan-400 to-pink-400"
+              : "bg-gradient-to-r from-blue-500 to-red-500"
+          }`}
+        ></span>
+      </h2>
 
       {/* Category Navigation Bar */}
-      <div className="flex justify-between w-full bg-white shadow-md p-2 mr-2 rounded-md mb-10 max-w-xl">
+      <div className="flex justify-between w-full bg-white shadow-md p-2 mr-2 rounded-md mb-10 max-w-4xl">
         {Object.keys(techCategories).map((category) => (
           <button
             key={category}
             onClick={() => setActiveCategory(category)}
             className={`px-14 py-2 mx-2 text-md font-semibold rounded-md transition-all 
-              ${activeCategory === category ? "bg-purple-600 text-white shadow-lg scale-105" : "bg-gray-100 text-gray-800 hover:bg-purple-500 hover:text-white"}`}
+              ${
+                activeCategory === category
+                  ? "bg-purple-600 text-white shadow-lg scale-105"
+                  : "bg-gray-100 text-gray-800 hover:bg-purple-500 hover:text-white"
+              }`}
           >
             {category}
           </button>
@@ -96,13 +133,19 @@ export default function Skills() {
       </div>
 
       {/* Icons Grid */}
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 w-4/5 gap-8">
+      <div className="grid w-full grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 w-4/5 gap-8">
         {techCategories[activeCategory].map((tech, index) => (
           <div
             key={index}
             className="flex flex-col items-center space-y-2 transform transition-all duration-300 hover:scale-110"
           >
-            <div className="text-6xl">{tech.icon}</div>
+            <div
+              className={`text-6xl ${
+                theme === "dark" ? "text-gray-200" : "text-gray-900"
+              }`}
+            >
+              {tech.icon}
+            </div>
             <span className="text-sm font-semibold">{tech.name}</span>
           </div>
         ))}

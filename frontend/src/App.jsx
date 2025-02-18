@@ -11,7 +11,7 @@ import Projects from "./WebsiteComponents/projects.jsx";
 import SignIn from "./WebsiteComponents/signin.jsx";
 import Skills from "./WebsiteComponents/skills.jsx";
 import Education from "./WebsiteComponents/education.jsx";
-import WorkExperience from "./WebsiteComponents/workexperience.jsx";
+import AboutMe from "./WebsiteComponents/AboutMe.jsx";
 import Testimonials from "./WebsiteComponents/testimonials.jsx";
 import ContactUs from "./WebsiteComponents/contactus.jsx";
 import SocialMediaBar from "./WebsiteComponents/socialmediabar.jsx";
@@ -57,8 +57,8 @@ export default function App() {
               <section id="hero">
                 <HeroSection />
               </section>
-              <section id="projects">
-                <Projects />
+              <section id="about-me">
+                <AboutMe />
               </section>
               <section id="skills">
                 <Skills />
@@ -66,9 +66,9 @@ export default function App() {
               <section id="education">
                 <Education />
               </section>
-              {/* <section id="work-experience">
-                <WorkExperience />
-              </section> */}
+              <section id="projects">
+                <Projects />
+              </section>
               <section id="testimonials">
                 <Testimonials />
               </section>
