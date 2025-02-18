@@ -2,11 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide scrollbars */
 .scrollbar-hidden::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Opera */
-  }
-  .scrollbar-hidden {
-    -ms-overflow-style: none; /* For Internet Explorer and Edge */
-    scrollbar-width: none; /* For Firefox */
-  }
-  
+  display: none;
+}
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Default Dark Mode */
+html {
+  @apply dark;
+}
+
+/* Background Image for Light Mode */
+.light-mode {
+  /* background-image: url('./assets/Images/websitebackground.jpg'); Replace with correct path */
+  background-color: rgb(246, 246, 246);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Background Image for Dark Mode */
+.dark-mode {
+  /* background-image: url('./assets/Images/backgrounnightmode.jpg'); Replace with correct dark mode image */
+  background-color: rgb(0, 0, 0);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Transparent Content Container */
+.content-container {
+  background-color: rgba(255, 255, 255, 0); /* Semi-transparent white */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  padding: 60px;
+  width: 100%;
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+  transition: background-color 0.3s ease;
+}
+
+/* Dark Mode Content Container */
+.dark .content-container {
+  background-color: rgba(0, 0, 0, 0); /* Semi-transparent dark background */
+}

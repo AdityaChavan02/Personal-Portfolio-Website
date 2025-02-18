@@ -1,22 +1,21 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  darkMode: "class", // Enable dark mode via class (works with next-themes)
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
         darkblue: "#052d41",
         darkerblue: "#063d59",
-        footerblue: "#030d26", // dark blue background color
+        footerblue: "#030d26",
         lightblue: "#0d4b7d",
         skyblue: "#5fbcfe",
         lightskyblue: "#acdafa",
         whiteblue: "#e0f2ff",
-        seablue: "#23a0f3", // light
+        seablue: "#23a0f3",
         white: "#FFFFFF",
-        navygray: "#cbcbcb", // white background color
-        buttonBlue: "#00AEEF", // for button
+        navygray: "#cbcbcb",
+        buttonBlue: "#00AEEF",
         buttonBorder: "#004F7D",
         orange: "#f49917",
         yellow: "#ffd042",
@@ -24,10 +23,12 @@ module.exports = {
         darkred: "#862200",
         green: "#219a0c",
         goldenyellow: "#efb000",
+        darkBg: "#121212", // Custom background for dark mode
+        lightBg: "#f8f9fa", // Custom background for light mode
       },
       animation: {
         "gradient-wave": "gradientWave 8s ease infinite",
-        "horizontal-scroll": "horizontalScroll 15s linear infinite", // New animation for horizontal scrolling
+        "horizontal-scroll": "horizontalScroll 15s linear infinite",
       },
       keyframes: {
         gradientWave: {
@@ -37,14 +38,14 @@ module.exports = {
         },
         horizontalScroll: {
           "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-100%)" }, // Scroll horizontally
+          "100%": { transform: "translateX(-100%)" },
         },
       },
       backgroundSize: {
-        "200%": "200% 200%", // Add large background size for gradients
+        "200%": "200% 200%",
       },
       width: {
-        card: "250px", // Custom card width
+        card: "250px",
       },
     },
   },
