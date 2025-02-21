@@ -62,7 +62,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative w-full h-screen flex flex-col md:flex-row justify-between overflow-hidden transition-all duration-300 px-10 mb-0 pb-0">
+    <section className="relative hero-wave w-full h-screen flex flex-col md:flex-row justify-between overflow-hidden transition-all duration-300 px-10 mb-0 pb-0">
       
       {/* Left Column - Animations Applied */}
       <motion.div 
@@ -113,10 +113,9 @@ export default function HeroSection() {
             transition={{ duration: 1.5, ease: "easeOut", delay: 0.4 }}
             className="text-lg leading-relaxed  text-gray-700 dark:text-gray-400"
           >
-            I am passionate about coding, building scalable applications, and
-            creating innovative solutions. My expertise lies in{" "}
-            <strong>full-stack development</strong> with a focus on{" "}
-            <strong>React, Next.js, and AWS</strong>.
+            I am a Web Development Professional who is passionate about turning creative ideas into scalable web applications that derive valuable results that truly connect. My expertise lies in{" "}
+            <strong>Full-Stack Development</strong> using <strong>React, TypeScript, Databases</strong> with a key focus on{" "}
+            <strong>Optimizing Browser Performance and Ensuring Responsive Design</strong>.
           </motion.p>
         )}
 
@@ -136,7 +135,7 @@ export default function HeroSection() {
               <FaAngleDoubleDown className="animate-bounce" />
             </button>
             <button
-                className="bg-black backdrop-blur-3xl dark:bg-yellow-400 text-white px-4 py-2 rounded-lg shadow-lg font-semibold transition-all hover:bg-purple-700 dark:hover:bg-yellow-500"
+                className="bg-black text-white dark:bg-white dark:text-black px-4 py-2 rounded-lg shadow-lg font-semibold transition-all hover:bg-teal text-white dark:hover:bg-teal dark:hover:text-white"
                 onClick={() => window.open("/resume.pdf", "_blank")}
               >
                 View Resume
@@ -153,7 +152,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, x: 50 }} 
           animate={{ opacity: 1, x: 0 }} 
           transition={{ duration: 1.5, ease: "easeOut", delay: 1.0 }}
-          className="relative w-full md:w-1/2 flex justify-center md:justify-start mt-10 md:mt-20 ml-20 md:px-0"
+          className="relative w-full md:w-1/2 flex justify-center md:justify-start mt-20 md:mt-20 ml-20 md:px-0"
         >
           <div
             className={`w-full max-w-2xl rounded-lg shadow-2xl overflow-hidden transition-all duration-300 ${

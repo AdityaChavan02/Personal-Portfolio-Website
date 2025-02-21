@@ -8,8 +8,8 @@ const educationData = [
     degree: "M.S. Financial Technology",
     university: "University of Liverpool, Liverpool, UK",
     details: [
-      "🔥 Relevant Courses: Python, Big Data Analytics, Digital Payments, QA & Statistics, Regulations, Financial Modelling.",
-      "🔥 Developed expertise in Data Science and AI-based financial analytics.",
+      "Relevant Courses: Python, Big Data Analytics, Digital Payments, QA & Statistics, Regulations, Financial Modelling.",
+      "Developed expertise in Data Science and AI-based financial analytics.",
     ],
   },
   {
@@ -17,8 +17,8 @@ const educationData = [
     degree: "B.E. Computer Science",
     university: "Modern College of Engineering, Pune, IND",
     details: [
-      "🔥 Relevant Courses: Web Development, Databases, Artificial Intelligence.",
-      "🔥 Worked on large-scale projects focusing on full-stack applications.",
+      "Relevant Courses: Web Development, Databases, Artificial Intelligence.",
+      "Worked on large-scale projects focusing on full-stack applications.",
     ],
   },
 ];
@@ -29,11 +29,15 @@ const workExperienceData = [
     position: "Full Stack Developer",
     company: "MSAFE Solutions Inc, Ontario, CA (Remote)",
     details: [
-      "🔥 Designed UI/UX wireframes in Adobe XD, improving UX by 15%.",
-      "🔥 Developed a React.js frontend with Tailwind and Material UI, reducing load time by 3s.",
-      "🔥 Built serverless backend with Node.js & Firebase Cloud Functions, reducing cloud costs by £70/month.",
-      "🔥 Enhanced security with Google OAuth & role-based access policies.",
-      "🔥 Improved website performance to 98/100 via Google Lighthouse optimizations.",
+      "• Crafted interactive UI/UX wireframes in Adobe XD, improving user experience by 15% through iterative feedback-driven web design.",
+      "• Engineered component-based React.js frontend with Tailwind and Material UI, accelerating feature rollout time by 5 days.",
+      "• Architected a serverless backend using Node.js and Firebase Cloud Functions, developed real-time RESTful APIs to handle advanced data queries, improving system response speed by 30% and reducing cloud service costs by £70 per month.",
+      "• Created efficient database schemas in Supabase, reducing query execution time by 300ms. Secured user data through role-based policies.",
+      "• Maximized website performance using Google Lighthouse. Utilized lazy-loading techniques, improving usability score to 98/100.",
+      "• Integrated dual sign-in, Google OAuth, Maps, and real-time notification APIs to enhance security and site functionalities.",
+      "• Hosted sites using Firebase Hosting and custom DNS in Scala. Streamlined team collaboration with Git, reducing merge conflicts by 25%.",
+      "• Authored comprehensive product documentation for technical and non-technical stakeholders, streamlining knowledge transfer.",
+
     ],
   },
   {
@@ -41,9 +45,19 @@ const workExperienceData = [
     position: "Junior Consultant",
     company: "TIBCO Ltd, Pune, IND",
     details: [
-      "🔥 Developed real-time transaction monitoring dashboard with React.js & Grafana.",
-      "🔥 Optimized system alerts, preventing 95% of critical reporting failures.",
-      "🔥 Automated processes, saving 12+ hours/week in debugging efforts.",
+      "• Configured real-time financial transaction monitoring dashboard using React.js and Grafana, reducing transaction reporting errors by 30%.",
+      "• Collaborated with backend engineers to optimise system alerts via Grafana, saving 12+ hours/week in manual debugging & 89% blockers.",
+      "• Automated processes, saving 12+ hours/week in debugging efforts.",
+    ],
+  },
+  {
+    year: "June 2019 - July 2019",
+    position: "WordPress Developer",
+    company: "Calviltech Digital Solutions, Pune, IND",
+    details: [
+      "• Designed and maintained a fully functional product platform with Elementor, handling 30+ service listings.",
+      "• Optimised site speed and responsiveness through efficient asset loading, caching strategies reducing load time from 4s to 1.6s.",
+      "• Emphasized effective collaboration with clients and in-house professionals to understand initial concepts, leading to the iterative refinement of website features ensuring impactful product delivery catering to evolving business needs.",
     ],
   },
 ];
@@ -86,8 +100,8 @@ export default function EducationExperienceTabs() {
               onClick={() => setActiveTab("experience")}
               className={`px-6 py-2 text-lg font-semibold rounded-lg transition-all ${
                 activeTab === "experience"
-                  ? "bg-black text-white shadow-lg scale-105"
-                  : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600"
+                  ? "bg-black text-white dark:bg-white dark:text-black hover:bg-teal dark:hover:text-white dark:hover:bg-teal shadow-lg"
+                  : "bg-black text-white dark:bg-white dark:text-black hover:bg-teal dark:hover:text-white dark:hover:bg-teal"
               }`}
             >
               Experience
@@ -96,8 +110,8 @@ export default function EducationExperienceTabs() {
               onClick={() => setActiveTab("education")}
               className={`px-6 py-2 ml-4 text-lg font-semibold rounded-lg transition-all ${
                 activeTab === "education"
-                  ? "bg-black text-white shadow-lg scale-105"
-                  : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600"
+                  ? "bg-black text-white dark:bg-white dark:text-black hover:bg-teal dark:hover:text-white dark:hover:bg-teal"
+                  : "bg-black text-white dark:bg-white dark:text-black hover:bg-teal dark:hover:text-white dark:hover:bg-teal"
               }`}
             >
               Education
@@ -117,7 +131,7 @@ export default function EducationExperienceTabs() {
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                     {activeTab === "experience" ? item.position : item.degree}
                   </h3>
-                <span className="px-4 py-2 text-sm font-bold text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-800 rounded-full shadow-md">
+                <span className="px-4 py-2 text-sm font-bold text-white dark:text-black bg-black dark:bg-white hover:bg-teal dark:hover:bg-teal dark:hover:text-white  rounded-full shadow-md">
                   {item.year}
                 </span>
 
@@ -132,8 +146,8 @@ export default function EducationExperienceTabs() {
               <ul className="mt-4 text-gray-800 dark:text-gray-200 space-y-2">
                 {item.details.map((point, idx) => (
                   <li key={idx} className="flex items-start">
-                    <span className="mr-2 text-lg">🔥</span> {/* Fire Emoji Bullet */}
-                    <p>{point.replace("🔥", "").trim()}</p> {/* Ensure consistency in list formatting */}
+                    <span className="mr-2 text-lg text-teal">•</span> {/* Fire Emoji Bullet */}
+                    <p>{point.replace("•", "").trim()}</p> {/* Ensure consistency in list formatting */}
                   </li>
                 ))}
               </ul>

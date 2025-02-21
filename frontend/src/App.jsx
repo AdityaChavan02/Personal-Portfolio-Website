@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 
 import Header from "./WebsiteComponents/Header.jsx";
 import Footer from "./WebsiteComponents/Footer.jsx";
+import Loader from "./WebsiteComponents/loader.jsx";
 import HeroSection from "./WebsiteComponents/herosection.jsx";
 import Projects from "./WebsiteComponents/projects.jsx";
 import SignIn from "./WebsiteComponents/signin.jsx";
@@ -25,6 +26,7 @@ import "./index.css";
 
 export default function App() {
   const { theme } = useTheme();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => setIsLoading(false), 2000); // Reduced Load Time
@@ -45,6 +47,9 @@ export default function App() {
       }`}
     >
       <Router>
+        {isLoading ? (
+          <Loader />
+        ) : (
           <>
             <Header scrollToSection={scrollToSection} />
             <div className="content-container w-full">
@@ -77,7 +82,7 @@ export default function App() {
             <ScrollToTop />
             <Footer />
           </>
-        
+        )}
 
         {/* Nested Routes */}
         <Routes>

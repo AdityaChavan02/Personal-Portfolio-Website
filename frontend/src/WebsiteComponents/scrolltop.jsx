@@ -34,9 +34,13 @@ export default function ScrollToTop() {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 bg-black text-white p-3 rounded-full shadow-lg transition-transform transform hover:scale-110 focus:outline-none z-50"
+          className={`fixed bottom-4 right-4 bg-black text-black p-3 rounded-full shadow-lg transition-transform transform hover:scale-110 hover:text-teal focus:outline-none z-50 ${
+              theme === "dark"
+                ? "bg-white"
+                : "bg-black"
+            }`}
         >
-          <FaArrowUp className="text-md" />
+          <FaArrowUp className="text-md text-white hover:text-teal dark:text-black " />
         </button>
       )}
     </div>

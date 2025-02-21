@@ -14,10 +14,15 @@ export default function SocialMediaBar() {
       >
         <div className={`p-2 rounded-full shadow-lg transition-transform transform hover:scale-110 ${
               theme === "dark"
-                ? "backdrop-blur-md"
+                ? "bg-white"
                 : "bg-black"
             }`}>
-          <FaLinkedin className="text-white text-xl group-hover:text-gray-200" />
+          <FaLinkedin className={`text-black text-xl ${
+              theme === "dark"
+                ? "text-black"
+                : "text-white"
+            }`}
+            />
         </div>
       </a>
 
@@ -29,10 +34,15 @@ export default function SocialMediaBar() {
       >
         <div className={`p-2 rounded-full shadow-lg transition-transform transform hover:scale-110 ${
               theme === "dark"
-                ? "backdrop-blur-md"
+                ? "bg-white"
                 : "bg-black"
             }`}>
-          <FaGithub className="text-white text-xl group-hover:text-gray-200" />
+          <FaGithub className={`text-black text-xl  
+          ${
+              theme === "dark"
+                ? "text-black"
+                : "text-white"
+            }`} />
         </div>
       </a>
 
@@ -42,12 +52,18 @@ export default function SocialMediaBar() {
         rel="noopener noreferrer"
         className="group"
       >
-        <div className={`p-2 rounded-full shadow-lg transition-transform transform hover:scale-110 ${
+        <div className={`p-2 rounded-full shadow-xl transition-transform transform hover:scale-110 ${
               theme === "dark"
-                ? "backdrop-blur-md"
+                ? "bg-white"
                 : "bg-black"
             }`}>
-          <BiLogoGmail className="text-white text-xl group-hover:text-gray-200" />
+          <BiLogoGmail className={`text-black text-xl 
+          ${
+              theme === "dark"
+                ? "text-black"
+                : "text-white"
+            }`} />
+
         </div>
       </a>
     </div>

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useTheme } from "next-themes"; // Dark Mode support
+import React, { useState, useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 import {
   SiHtml5,
   SiCss3,
@@ -88,6 +88,7 @@ export default function Skills() {
   const { theme } = useTheme();
   const [activeCategory, setActiveCategory] = useState("Frontend");
 
+
   return (
     <div className="flex flex-col items-center justify-center w-full py-20 px-4">
       {/* Title */}
@@ -96,26 +97,22 @@ export default function Skills() {
           theme === "dark" ? "text-gray-200" : "text-gray-800"
         }`}
       >
-        <span className={theme === "dark" ? "text-teal" : "text-teal"}>
-          {`</`}
-        </span>
-        <span className={theme === "dark" ? "text-white" : "text-black"}>
-          SKILLS
-        </span>
-        <span className={theme === "dark" ? "text-teal" : "text-teal"}>
-          {`>`}
-        </span>
+        <span className={theme === "dark" ? "text-teal" : "text-teal"}>{`</`}</span>
+        <span className={theme === "dark" ? "text-white" : "text-black"}>SKILLS</span>
+        <span className={theme === "dark" ? "text-teal" : "text-teal"}>{`>`}</span>
         <span
           className={`flex-1 ml-4 h-[3px] transition-all duration-300 ${
-            theme === "dark"
-              ? "bg-gradient-to-r from-cyan-400 to-transparent"
-              : "bg-gradient-to-r from-teal to-transparent"
+            theme === "dark" ? "bg-gradient-to-r from-teal to-transparent" : "bg-gradient-to-r from-teal to-transparent"
           }`}
         ></span>
       </h2>
 
       {/* Category Navigation Bar */}
-      <div className="flex justify-between w-full backdrop-blur-xl shadow-md p-2 mr-2 rounded-md mb-20 max-w-4xl">
+      <div
+        className={`flex justify-between w-full backdrop-blur-xl shadow-md p-2 mr-2 rounded-md mb-20 max-w-4xl ${
+          theme === "dark" ? "" : ""
+        }`}
+      >
         {Object.keys(techCategories).map((category) => (
           <button
             key={category}
@@ -123,8 +120,8 @@ export default function Skills() {
             className={`px-14 py-2 mx-2 text-md font-semibold rounded-md transition-all 
               ${
                 activeCategory === category
-                  ? "bg-black text-white shadow-lg scale-105"
-                  : "bg-gray-100 text-gray-800 hover:bg-purple-500 hover:text-white"
+                  ? "bg-black text-white hover:bg-teal hover:text-white dark:bg-white dark:text-black dark:hover:bg-teal dark:hover:text-white"
+                  : "bg-black text-white hover:bg-teal hover:text-white dark:bg-white dark:text-black dark:hover:bg-teal dark:hover:text-white"
               }`}
           >
             {category}
@@ -139,13 +136,7 @@ export default function Skills() {
             key={index}
             className="flex flex-col items-center space-y-2 transform transition-all duration-300 hover:scale-110"
           >
-            <div
-              className={`text-6xl ${
-                theme === "dark" ? "text-gray-200" : "text-gray-900"
-              }`}
-            >
-              {tech.icon}
-            </div>
+            <div className={`text-6xl ${theme === "dark" ? "text-gray-200" : "text-gray-900"}`}>{tech.icon}</div>
             <span className="text-sm font-semibold">{tech.name}</span>
           </div>
         ))}

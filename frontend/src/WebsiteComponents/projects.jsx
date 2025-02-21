@@ -21,10 +21,15 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: "Threading Component",
+      title: "ARC Enterprises",
       image: ThreadingImg,
-      description:
-        "This product is built to elevate your productivity and simplify complex tasks with innovative features.",
+      subtitle:"• Developed an interactive UI with engaging animations using React.js and Tailwind, increasing average user time on site from 40s to 3min.",
+      description: [
+        "• Developed an interactive UI with engaging animations using React.js and Tailwind, increasing average user time on site from 40s to 3min.",
+        "• Developed an interactive UI with engaging animations using React.js and Tailwind, increasing average user time on site from 40s to 3min.",
+        "• Developed an interactive UI with engaging animations using React.js and Tailwind, increasing average user time on site from 40s to 3min.",
+        
+      ],
       projectLink: "https://www.example.com/threading",
       github: "https://github.com/example/threading",
       videoLink: "https://www.youtube.com/example",
@@ -33,8 +38,13 @@ export default function Projects() {
       id: 2,
       title: "Turning Component",
       image: TurningImg,
-      description:
-        "A high-performance product designed for durability, reliability, and unmatched performance.",
+      subtitle:"• Developed an interactive UI with engaging animations using React.js and Tailwind, increasing average user time on site from 40s to 3min.",
+      description: [
+        "• Developed an interactive UI with engaging animations using React.js and Tailwind, increasing average user time on site from 40s to 3min.",
+        "• Developed an interactive UI with engaging animations using React.js and Tailwind, increasing average user time on site from 40s to 3min.",
+        "• Developed an interactive UI with engaging animations using React.js and Tailwind, increasing average user time on site from 40s to 3min.",
+        
+      ],
       projectLink: "https://www.example.com/turning",
       github: "https://github.com/example/turning",
     },
@@ -42,8 +52,13 @@ export default function Projects() {
       id: 3,
       title: "Fixture Component",
       image: FixturesImg,
-      description:
-        "Engineered for excellence, this product delivers exceptional results and user satisfaction.",
+      subtitle:"• Developed an interactive UI with engaging animations using React.js and Tailwind, increasing average user time on site from 40s to 3min.",
+      description: [
+        "• Developed an interactive UI with engaging animations using React.js and Tailwind, increasing average user time on site from 40s to 3min.",
+        "• Developed an interactive UI with engaging animations using React.js and Tailwind, increasing average user time on site from 40s to 3min.",
+        "• Developed an interactive UI with engaging animations using React.js and Tailwind, increasing average user time on site from 40s to 3min.",
+        
+      ],
       projectLink: "https://www.example.com/fixtures",
       github: "https://github.com/example/fixtures",
     },
@@ -62,15 +77,15 @@ export default function Projects() {
   };
 
   return (
-    <div className="flex flex-col w-full px-2 py-8 space-y-8">
+    <div className="flex flex-col w-full px-2 py-2 space-y-8">
       {/* Title */}
       <div className="text-center space-y-4">
-              <h2 className={`text-4xl font-mono font-bold flex items-center mb-20 transition-all duration-300 ${
+              <h2 className={`text-4xl font-mono font-bold flex items-center mb-5 transition-all duration-300 ${
           theme === "dark" ? "text-gray-200" : "text-gray-800"
         }`}>
           <span className={theme === "dark" ? "text-teal" : "text-teal"}>{`</`}</span>
           <span className={theme === "dark" ? "text-white" : "text-black"}>PROJECTS</span>
-          <span className={theme === "dark" ? "text-teal" : "textteal"}>{`>`}</span>
+          <span className={theme === "dark" ? "text-teal" : "text-teal"}>{`>`}</span>
           <span
             className={`flex-1 ml-4 h-[3px] transition-all duration-300 ${
               theme === "dark"
@@ -121,7 +136,14 @@ export default function Projects() {
               <h2 className="text-3xl font-bold text-gray-800 dark:text-white">
                 {selectedProject.title}
               </h2>
-              <p className="text-gray-700 dark:text-gray-300">{selectedProject.description}</p>
+              <ul className="mt-4 text-gray-800 dark:text-gray-200 space-y-2">
+                {selectedProject.map((point, idx) => (
+                  <li key={idx} className="flex items-start">
+                    <span className="mr-2 text-lg text-teal">•</span> {/* Fire Emoji Bullet */}
+                    <p>{point.replace("•", "").trim()}</p> {/* Ensure consistency in list formatting */}
+                  </li>
+                ))}
+              </ul>
               <a
                 href={selectedProject.projectLink}
                 target="_blank"

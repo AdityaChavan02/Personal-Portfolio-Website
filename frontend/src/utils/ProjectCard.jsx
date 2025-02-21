@@ -28,7 +28,7 @@ export default function ProjectCard({ project, openModal }) {
         </div>
 
         {/* Project Description */}
-        <p className="text-gray-400">{project.description}</p>
+        <p className="text-gray-400">{project.subtitle}</p>
       </div>
 
       {/* Right Column - Half Hidden Image */}

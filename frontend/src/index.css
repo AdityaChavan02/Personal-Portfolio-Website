@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Removed invalid import statement */
 
 /* Hide scrollbars */
 .scrollbar-hidden::-webkit-scrollbar {
@@ -59,4 +60,102 @@ html {
 /* Dark Mode Content Container */
 .dark .content-container {
   background-color: rgba(0, 0, 0, 0); /* Semi-transparent dark background */
+}
+
+/* ---------------------- */
+/* ✅ Light Mode - Teal Wave */
+/* ---------------------- */
+
+.light-wave-shadow {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.7); /* Static White Shadow */
+}
+
+.light-wave-shadow::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  box-shadow: 0 0 30px #66cdaa;  /* Teal wave */
+  animation: tealWaveAround 9s linear infinite; /* Wave Animation */
+  pointer-events: none; /* No interaction */
+}
+
+/* Wave Moving Around the Rectangle */
+@keyframes tealWaveAround {
+  0% {
+    top: -30px; left: -30px;
+    box-shadow: 0 0 40px #66cdaa;
+  }
+  25% {
+    top: 30px; left: calc(100% - 30px);
+    box-shadow: 0 0 10px #66cdaa;
+  }
+  50% {
+    top: calc(100% - 10px); left: calc(100% - 10px);
+    box-shadow: 0 0 40px #66cdaa;
+  }
+  75% {
+    top: calc(100% - 10px); left: -10px;
+    box-shadow: 0 0 60px #66cdaa;
+  }
+  100% {
+    top: -10px; left: -10px;
+    box-shadow: 0 0 40px #66cdaa;
+  }
+}
+
+
+/* ---------------------- */
+/* 🌙 Dark Mode - White Wave */
+/* ---------------------- */
+
+.dark-wave-shadow {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: black;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.9); /* Static White Shadow */
+}
+
+.dark-wave-shadow::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  border-radius: 20px;
+  box-shadow: 0 0 30px #ffffff;  /* White wave */
+  animation: whiteWaveAround 6s linear infinite; /* Wave Animation */
+  pointer-events: none; /* No interaction */
+}
+
+/* Wave Moving Around the Rectangle */
+@keyframes whiteWaveAround {
+  0% {
+    top: -10px; left: -10px;
+    box-shadow: 0 0 40px #ffffff;
+  }
+  25% {
+    top: -10px; left: calc(100% - 10px);
+    box-shadow: 0 0 60px #ffffff;
+  }
+  50% {
+    top: calc(100% - 10px); left: calc(100% - 10px);
+    box-shadow: 0 0 40px #ffffff;
+  }
+  75% {
+    top: calc(100% - 10px); left: -10px;
+    box-shadow: 0 0 60px #ffffff;
+  }
+  100% {
+    top: -10px; left: -10px;
+    box-shadow: 0 0 40px #ffffff;
+  }
 }
