@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTheme } from "next-themes";
-import { FaGithub, FaExternalLinkAlt, FaVideo } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaVideo, FaLinkedin } from "react-icons/fa";
 
 export default function ProjectCard({ project, openModal }) {
   const { theme } = useTheme();
@@ -8,7 +8,7 @@ export default function ProjectCard({ project, openModal }) {
 
   return (
     <div
-      className={`relative flex flex-row items-center w-full h-[300px] overflow-hidden rounded-xl shadow-md transition-all hover:shadow-lg cursor-pointer
+      className={`relative flex items-center w-full h-[300px] overflow-hidden rounded-xl shadow-md transition-all hover:shadow-lg cursor-pointer
         ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -18,12 +18,6 @@ export default function ProjectCard({ project, openModal }) {
       <div className="flex-1 space-y-3 z-10 py-8 px-6 h-full relative">
         {/* Project Logo & Title */}
         <div className="flex items-center space-x-3">
-          <div
-            className={`w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg 
-              ${theme === "dark" ? "bg-gray-800 text-white" : "bg-gray-300 text-black"}`}
-          >
-            {project.title.charAt(0)}
-          </div>
           <h2 className="text-2xl font-bold">{project.title}</h2>
         </div>
 
@@ -31,44 +25,49 @@ export default function ProjectCard({ project, openModal }) {
         <p className="text-gray-400">{project.subtitle}</p>
       </div>
 
-      {/* Right Column - Half Hidden Image */}
-      <div className="relative w-1/2 top-8 overflow-hidden rounded-l-xl">
+      {/* Right Column - Project Image */}
+      <div className="relative w-1/2 h-full overflow-hidden top-16 position-bottom rounded-l-xl">
         <img
-          src={project.image}
+          src={project.images[0]}
           alt={project.title}
-          className={`w-full h-full object-cover rounded-tl-xl rounded-bl-xl scale-110 transition-all duration-500 
-            ${isHovered ? "brightness-50" : ""}`}
+          className={`w-full h-full object-cover transition-all duration-500 
+            ${isHovered ? "brightness-50 scale-105" : ""}`}
         />
 
-        {/* Overlay Hover Effect */}
+        {/* Overlay Hover Icons */}
         {isHovered && (
           <div className="absolute inset-0 flex items-center justify-center space-x-4 transition-opacity duration-500">
+          {project.projectLink && (
             <a
               href={project.projectLink}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-black opacity-80 text-white p-3 rounded-lg hover:scale-110 transition-all"
+              onClick={(e) => e.stopPropagation()}
             >
-              <FaExternalLinkAlt size={22} />
+              <FaExternalLinkAlt size={18} />
             </a>
-
+          )}
+            {project.GitHubLink && (
             <a
-              href={project.github}
+              href={project.GitHubLink}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-black opacity-80 text-white p-3 rounded-lg hover:scale-110 transition-all"
+              onClick={(e) => e.stopPropagation()}
             >
-              <FaGithub size={22} />
+              <FaGithub size={18} />
             </a>
-
-            {project.videoLink && (
+            )}
+            {project.LinkedInLink && (
               <a
-                href={project.videoLink}
+                href={project.LinkedInLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-black opacity-40 text-white p-3 rounded-lg hover:scale-110 transition-all"
+                className="bg-black opacity-80 text-white p-3 rounded-lg hover:scale-110 transition-all"
+                onClick={(e) => e.stopPropagation()}
               >
-                <FaVideo size={22} />
+                <FaLinkedin size={18} color="white" />
               </a>
             )}
           </div>

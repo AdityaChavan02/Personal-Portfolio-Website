@@ -1,0 +1,3 @@
+firebase functions:config:set email.user="adityardchavan27@gmail.com" \
+                              email.pass= "kppp hrek wwyu jqrw" \
+                              email.receiver="adityardchavan27@gmail.com"

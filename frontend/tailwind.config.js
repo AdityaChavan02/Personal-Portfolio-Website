@@ -8,6 +8,7 @@ module.exports = {
         darkblue: "#052d41",
         teal: "#66cdaa",
         darkerblue: "#063d59",
+        
         footerblue: "#030d26",
         lightblue: "#0d4b7d",
         skyblue: "#5fbcfe",
@@ -26,6 +27,7 @@ module.exports = {
         goldenyellow: "#efb000",
         darkBg: "#121212", // Custom background for dark mode
         lightBg: "#f8f9fa", // Custom background for light mode
+        bground: "F6f6f6",
       },
       animation: {
         "gradient-wave": "gradientWave 8s ease infinite",

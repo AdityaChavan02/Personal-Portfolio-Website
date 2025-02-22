@@ -128,14 +128,14 @@ export default function ContactUs() {
           </div>
   
           {/* Details Container */}
-          <div className="flex flex-col w-1/3 space-y-12">
+          <div className="flex flex-col w-1/3 space-y-12 text-gray-800">
             <input
               type="text"
               name="fullName"
-              placeholder="Full Name"
+              placeholder="Name"
               value={formData.fullName}
               onChange={handleChange}
-              className="border-b pb-2 bg-transparent"
+              className="border-b border-gray-300 pb-2 bg-transparent"
               required
             />
             <input
@@ -144,7 +144,7 @@ export default function ContactUs() {
               placeholder="Email"
               value={formData.email}
               onChange={handleChange}
-              className="border-b pb-2 bg-transparent"
+              className="border-b border-gray-300 pb-2 bg-transparent"
               required
             />
             <input
@@ -153,7 +153,7 @@ export default function ContactUs() {
               placeholder="Phone"
               value={formData.phone}
               onChange={handleChange}
-              className="border-b pb-2 bg-transparent"
+              className="border-b border-gray-300 pb-2 bg-transparent"
               required
             />
             <input
@@ -162,7 +162,7 @@ export default function ContactUs() {
               placeholder="Company"
               value={formData.company}
               onChange={handleChange}
-              className="border-b pb-2 bg-transparent"
+              className="border-b border-gray-300 pb-2 bg-transparent"
             />
           </div>
   
@@ -173,7 +173,7 @@ export default function ContactUs() {
               placeholder="Message"
               value={formData.message}
               onChange={handleChange}
-              className="w-full h-full border-b pb-14 bg-transparent"
+              className="w-full h-full border-gray-300 border-b pb-14 bg-transparent"
             ></textarea>
   
             <button

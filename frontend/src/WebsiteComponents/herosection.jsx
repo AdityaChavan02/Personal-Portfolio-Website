@@ -4,8 +4,8 @@ import Editor from "react-simple-code-editor";
 import { Highlight, themes } from "prism-react-renderer";
 import { FaCircle, FaAngleDoubleDown } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
-import { motion } from "framer-motion"; // Import framer-motion for animations
-import ProfilePic from "../assets/Images/profile.jpg"; // Ensure correct path
+import { motion } from "framer-motion";
+import ParticleBackground from "../utils/particleBackground";
 
 export default function HeroSection() {
   const { theme } = useTheme();
@@ -16,7 +16,6 @@ export default function HeroSection() {
   const [code, setCode] = useState("");
   const editorRef = useRef(null);
 
-  // Initial Code Snippet
   const initialCode = `const coder = {
   name: "Aditya",
   skills: ["React", "NextJS", "Redux", "Express", "MongoDB", "Docker", "AWS"],
@@ -40,7 +39,6 @@ export default function HeroSection() {
     setTimeout(() => typeCode(initialCode), 1900);
   }, []);
 
-  // Typing Animation Effect
   const typeCode = (fullText) => {
     let i = 0;
     const interval = setInterval(() => {
@@ -53,7 +51,6 @@ export default function HeroSection() {
     }, 30);
   };
 
-  // Scroll to next section when clicking "View More"
   const handleScroll = () => {
     const nextSection = document.getElementById("projects");
     if (nextSection) {
@@ -62,26 +59,30 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative hero-wave w-full h-screen flex flex-col md:flex-row justify-between overflow-hidden transition-all duration-300 px-10 mb-0 pb-0">
+    <section 
+      className="relative hero-wave w-full h-screen flex flex-col md:flex-row justify-between overflow-hidden transition-all duration-300 px-10 mb-0 pb-0"
+      style={{ position: "relative", zIndex: 2 }}
+    >
       
-      {/* Left Column - Animations Applied */}
+      <ParticleBackground/>
+
+      {/* ✅ Left Column */}
       <motion.div 
         initial={{ y: 50, opacity: 0 }} 
         animate={{ y: 0, opacity: 1 }} 
         transition={{ duration: 1.5, ease: "easeOut" }} 
-        className="w-full md:w-1/2 flex flex-col items-start justify-start space-y-8 mt-40 " style={{ minHeight: "500px", maxHeight: "500px" }}
+        className="w-full md:w-1/2 flex flex-col items-start justify-start space-y-8 mt-40 " 
+        style={{ minHeight: "300px", maxHeight: "300px", position: "relative", zIndex: 3, }}
       >
-        {/* Animated Greeting */}
         <motion.h1 
           initial={{ y: 50, opacity: 0 }} 
           animate={{ y: 0, opacity: 1 }} 
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white"
         >
-          Hello, <span className="text-teal dark:text-yellow-400 ">I’m Aditya</span>
+          Hello, <span className="text-teal dark:text-yellow-400">I’m Aditya</span>
         </motion.h1>
 
-        {/* Animated Role Typing */}
         {showContent && (
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -105,21 +106,17 @@ export default function HeroSection() {
           </motion.div>
         )}
 
-        {/* About Section */}
         {showContent && (
           <motion.p 
             initial={{ y: 50, opacity: 0 }} 
             animate={{ y: 0, opacity: 1 }} 
             transition={{ duration: 1.5, ease: "easeOut", delay: 0.4 }}
-            className="text-lg leading-relaxed  text-gray-700 dark:text-gray-400"
+            className="text-lg leading-relaxed text-gray-700 dark:text-gray-400"
           >
-            I am a Web Development Professional who is passionate about turning creative ideas into scalable web applications that derive valuable results that truly connect. My expertise lies in{" "}
-            <strong>Full-Stack Development</strong> using <strong>React, TypeScript, Databases</strong> with a key focus on{" "}
-            <strong>Optimizing Browser Performance and Ensuring Responsive Design</strong>.
+            I am a Full Stack Developer who is passionate about turning creative ideas into scalable web applications that derive valuable results.
           </motion.p>
         )}
 
-        {/* Buttons */}
         {showContent && (
           <motion.div 
             initial={{ y: 50, opacity: 0 }} 
@@ -135,24 +132,23 @@ export default function HeroSection() {
               <FaAngleDoubleDown className="animate-bounce" />
             </button>
             <button
-                className="bg-black text-white dark:bg-white dark:text-black px-4 py-2 rounded-lg shadow-lg font-semibold transition-all hover:bg-teal text-white dark:hover:bg-teal dark:hover:text-white"
-                onClick={() => window.open("/resume.pdf", "_blank")}
-              >
-                View Resume
-              </button>
-
-
+              className="bg-black text-white dark:bg-white dark:text-black px-4 py-2 rounded-lg shadow-lg font-semibold transition-all hover:bg-teal text-white dark:hover:bg-teal dark:hover:text-white"
+              onClick={() => window.open("/resume.pdf", "_blank")}
+            >
+              View Resume
+            </button>
           </motion.div>
         )}
       </motion.div>
 
-      {/* Code Editor - Background Same for Both Modes */}
+      {/* ✅ Code Editor */}
       {showEditor && (
         <motion.div 
           initial={{ opacity: 0, x: 50 }} 
           animate={{ opacity: 1, x: 0 }} 
           transition={{ duration: 1.5, ease: "easeOut", delay: 1.0 }}
           className="relative w-full md:w-1/2 flex justify-center md:justify-start mt-20 md:mt-20 ml-20 md:px-0"
+          style={{ position: "relative", zIndex: 2 }}
         >
           <div
             className={`w-full max-w-2xl rounded-lg shadow-2xl overflow-hidden transition-all duration-300 ${
@@ -161,7 +157,6 @@ export default function HeroSection() {
             ref={editorRef}
             style={{ minHeight: "500px", maxHeight: "500px", width: "650px" }}
           >
-            {/* Code Editor Title Bar */}
             <div
               className={`flex items-center px-4 py-2 rounded-t-lg transition-all duration-300 ${
                 theme === "dark" ? "bg-gray-800" : "bg-gray-300"
@@ -172,7 +167,6 @@ export default function HeroSection() {
               <FaCircle className="text-green" />
             </div>
 
-            {/* Code Editor */}
             <Editor
               value={code}
               onValueChange={(newCode) => setCode(newCode)}
@@ -202,7 +196,6 @@ export default function HeroSection() {
             />
           </div>
         </motion.div>
-
       )}
     </section>
   );

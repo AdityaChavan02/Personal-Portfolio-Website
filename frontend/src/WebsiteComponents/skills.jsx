@@ -34,15 +34,25 @@ import {
   SiJira,
   SiClickup,
   SiNotion,
+  SiAdobephotoshop,
+  SiAdobeillustrator,
+  SiAdobelightroom,
   SiScrumalliance,
 } from "react-icons/si";
+import { BsFiletypeSql } from "react-icons/bs";
+import { FaAws, FaSlack } from "react-icons/fa";
+import { BiLogoTypescript, BiLogoGoogleCloud } from "react-icons/bi";
+import { AiOutlinePython } from "react-icons/ai";
+import { TbApi } from "react-icons/tb";
+import { TbSeo } from "react-icons/tb";
+import { FiFramer } from "react-icons/fi";
 
-import { FaAws } from "react-icons/fa";
 const techCategories = {
   Frontend: [
     { name: "HTML5", icon: <SiHtml5 color="#E34F26" /> },
     { name: "CSS3", icon: <SiCss3 color="#1572B6" /> },
     { name: "JavaScript (ES6)", icon: <SiJavascript color="#F7DF1E" /> },
+    { name: "TypeScript", icon: <BiLogoTypescript color="#1572B6" /> },
     { name: "React.js", icon: <SiReact color="#61DAFB" /> },
     { name: "Bootstrap", icon: <SiBootstrap color="#7952B3" /> },
     { name: "Tailwind CSS", icon: <SiTailwindcss color="#38BDF8" /> },
@@ -54,14 +64,19 @@ const techCategories = {
     { name: "WordPress", icon: <SiWordpress color="#21759B" /> },
     { name: "Elementor", icon: <SiElementor color="#92003B" /> },
     { name: "WooCommerce", icon: <SiWoo color="#96588A" /> },
+    { name: "SEO", icon: <TbSeo color="green" /> },
+    { name: "Framer Motion", icon: <FiFramer color="orange" /> },
   ],
   Backend: [
     { name: "Node.js", icon: <SiNodedotjs color="#339933" /> },
-    { name: "Express.js", icon: <SiExpress color="#000000" /> },
+    { name: "Express.js", icon: <SiExpress color="green"/> },
     { name: "GraphQL", icon: <SiGraphql color="#E10098" /> },
+    { name: "RESTful API", icon: <TbApi color="orange" /> },
+    { name: "Python", icon: <AiOutlinePython color="darkblue" /> },
+
   ],
   Databases: [
-    { name: "SQL", icon: <SiPostgresql color="#336791" /> },
+    { name: "SQL", icon: <BsFiletypeSql color="#336791" /> },
     { name: "PostgreSQL", icon: <SiPostgresql color="#336791" /> },
     { name: "MySQL", icon: <SiMysql color="#4479A1" /> },
     { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
@@ -69,18 +84,23 @@ const techCategories = {
     { name: "Firebase", icon: <SiFirebase color="#FFCA28" /> },
     { name: "AWS", icon: <FaAws color="#FF9900" /> },
     { name: "Tableau", icon: <SiTableau color="#E97627" /> },
+    { name: "Google Cloud", icon: <BiLogoGoogleCloud color="lightblue" /> },
+
   ],
   "DevOps & PM": [
     { name: "Webpack", icon: <SiWebpack color="#8DD6F9" /> },
     { name: "Vite", icon: <SiVite color="#646CFF" /> },
     { name: "Jest", icon: <SiJest color="#C21325" /> },
     { name: "Postman", icon: <SiPostman color="#FF6C37" /> },
-    { name: "Notion", icon: <SiNotion color="#000000" /> },
+    { name: "Notion", icon: <SiNotion color="black" /> },
     { name: "ClickUp", icon: <SiClickup color="#7B68EE" /> },
     { name: "JIRA", icon: <SiJira color="#0052CC" /> },
-    { name: "Agile Scrum", icon: <SiScrumalliance color="#0093D0" /> },
     { name: "Git", icon: <SiGit color="#F05032" /> },
-    { name: "GitHub", icon: <SiGithub color="#181717" /> },
+    { name: "GitHub", icon: <SiGithub color="black" /> },
+    { name: "Slack", icon: <FaSlack color ="lightskyblue" /> },
+    { name: "Photoshop", icon: <SiAdobephotoshop color ="green" /> },
+    { name: "Illustrator", icon: <SiAdobeillustrator color ="orange" /> },
+    { name: "Lightroom", icon: <SiAdobelightroom color ="blue" /> },
   ],
 };
 
@@ -130,7 +150,7 @@ export default function Skills() {
       </div>
 
       {/* Icons Grid */}
-      <div className="grid w-full grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 w-4/5 gap-8">
+      <div className="grid w-full h-[350px] grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 w-4/5 gap-8">
         {techCategories[activeCategory].map((tech, index) => (
           <div
             key={index}

@@ -1,7 +1,8 @@
 {
   "functions": [
     {
-      "source": "functions",
+      "source": "/functions",
+      "runtime": "nodejs18",
       "codebase": "default",
       "ignore": [
         "node_modules",
@@ -11,5 +12,13 @@
         "*.local"
       ]
     }
-  ]
+  ],
+  "emulators": {
+    "functions": {
+      "port": 5001
+    },
+    "ui": {
+      "enabled": true
+    }
+  }
 }

@@ -40,7 +40,7 @@ export default function ScrollToTop() {
                 : "bg-black"
             }`}
         >
-          <FaArrowUp className="text-md text-white hover:text-teal dark:text-black " />
+          <FaArrowUp className="text-md text-white hover:text-teal dark:text-black" />
         </button>
       )}
     </div>

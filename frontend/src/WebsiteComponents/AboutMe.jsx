@@ -72,8 +72,9 @@ export default function AboutMe() {
             transition={{ duration: 1.3, delay: 0.4 }}
             className="text-lg leading-relaxed text-gray-700 dark:text-gray-300"
           >
-            I am a passionate <strong>Full Stack Developer</strong> with expertise in <strong>modern web technologies</strong> and a strong foundation in <strong>backend development</strong>. My journey spans from <strong>data-intensive systems</strong> to creating <strong>scalable web applications</strong>. I specialize in <strong>React, Next.js, JavaScript, SQL, and Cloud Computing</strong>, striving to craft elegant solutions that make an impact.
-          </motion.p>
+            I’m a passionate full-stack developer with a knack for transforming complex challenges into intuitive, user-friendly solutions. Specializing in <strong className="text-teal">React.js and serverless architectures</strong>, I blend technical expertise with creative problem-solving to build products that truly make a difference. My work spans from responsive UIs to efficient cloud integrations. I excel in collaborative environments where innovative ideas turn into impactful, real-world solutions.
+
+            </motion.p>
 
           {/* Personal Details */}
           <motion.div

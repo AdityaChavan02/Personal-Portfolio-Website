@@ -14,7 +14,7 @@ export default function Footer() {
           Copyright © 2025 Aditya Chavan
         </span>
         <span className="text-start lg:text-left mt-5">
-          Website Developed in ReactJS, hosted on Firebase
+
         </span>
       </div>
     </div>
